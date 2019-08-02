@@ -7,7 +7,7 @@ import { Action } from "../action/counter"
 // 引入action动作行为的常量
 import * as types from "../action-types"
 // 我们需要给number赋予默认值
-let initState:Store = { number:0 }
+let initState:Store = { number:20 }
 // 把接口写在state:Store
 export default function (state:Store=initState,action:Action) {
   // 拿到老的状态state和新的状态action
@@ -16,11 +16,11 @@ export default function (state:Store=initState,action:Action) {
   switch (action.type) {
     case types.ADD:
         // 当action动作行为是ADD的时候，给number加1
-        return { number:state.number + 1 }
+        return { number:state.number + 10 }
       break;
     case types.SUBTRACT:
         // 当action动作行为是SUBTRACT的时候，给number减1
-        return { number:state.number - 1 }
+        return { number:state.number - 20 }
       break;
     default:
         // 当没有匹配到则返回原本的state

@@ -1,10 +1,9 @@
 // ./src/components/Counter.tsx
 import * as React from "react";
 // 引入connect，让组件和仓库建立连接
-import { connect  } from "react-redux";
-import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
 // 引入actions，用于传给connect
-import {add,subtract} from "../store/action/counter";
+import actions from "../store/action/counter";
 // 引入接口约束
 import { Store } from "../types";
 // 接口约束
@@ -15,7 +14,7 @@ interface IProps{
   // subtract是一个函数
   subtract:any
 }
-class CounterComponent extends React.Component<IProps>{
+class my extends React.Component<IProps>{
   render(){
     // 利用解构赋值取出
     // 这里比如和IProps保持一致，不对应则会报错，因为接口约束了必须这样
@@ -36,15 +35,8 @@ class CounterComponent extends React.Component<IProps>{
 let mapStateToProps = function (state:Store) {
   return state
 }
-// const mapDispatchToProps = {
-//   add,
-//   subtract,
-//   // reset
-// };
-function mapDispatchToProps(dispatch:any) {
-  return bindActionCreators({ add, subtract }, dispatch);
-}
+
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
-)(CounterComponent);
+  actions
+)(my);

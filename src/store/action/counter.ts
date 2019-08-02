@@ -16,6 +16,10 @@ export type Action = Add | Subtract
 
 // 把上面定义好的接口作用于下面
 // 约束返回值的类型
+export const add = () => ({ type: types.ADD});
+export const subtract = () => ({ type: types.SUBTRACT});
+
+
 export default {
   add():Add{
     // 需要返回一个action对象
